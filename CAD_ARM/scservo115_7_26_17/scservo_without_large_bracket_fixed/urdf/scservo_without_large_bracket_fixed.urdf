@@ -1,0 +1,43 @@
+<robot
+  name="scservo_without_large_bracket_fixed">
+  <link
+    name="scservo_without_large_bracket_fixed">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scservo_without_large_bracket_fixed/meshes/scservo_without_large_bracket_fixed.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scservo_without_large_bracket_fixed/meshes/scservo_without_large_bracket_fixed.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>
