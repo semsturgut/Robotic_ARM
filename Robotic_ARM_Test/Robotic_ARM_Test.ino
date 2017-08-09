@@ -7,10 +7,11 @@ int cur_pos;
 
 void baseWritePos(int, int);
 void clawWritePos(int, int);
-void setupPosition();
+void setupPosition(int);
 void homePosition(int);
 void Movement_1(int);
 void Movement_2(int);
+void Beer(int);
 
 int servo_ID, servo_Position, servo_Duration, last_Position;
 String input_String;
@@ -18,10 +19,10 @@ int ind1,ind2,ind3;
 
 
 void setup() {
-        Serial.begin(19200);
+        // Serial.begin(19200);
         Serial1.begin(9600);// Serial port for bluetooth TX1, RX1
-        Serial2.begin(1000000);// Serial port for SCServos TX0, RX0
-        SERVO.pSerial = &Serial2;
+        Serial.begin(1000000);// Serial port for SCServos TX0, RX0
+        SERVO.pSerial = &Serial;
         delay(500);
         // Enable servos torques
         SERVO.EnableTorque(1, 1);
@@ -34,7 +35,7 @@ void setup() {
         SERVO.EnableTorque(8, 1);
         SERVO.EnableTorque(9, 1);
 
-        setupPosition();// This function is set servos to default positions
+        setupPosition(1500);// This function is set servos to default positions
 }
 
 void loop() {
@@ -60,15 +61,15 @@ void loop() {
                         case 2:            // This case control servo ID: 1 and 2. (Base servo.)
                                 if (servo_Position >= 300 && servo_Position <= 700) {
                                         baseWritePos(servo_Position, servo_Duration);
-                                        Serial.println(servo_Duration);
+                                        // Serial.println(servo_Duration);
                                         delay(servo_Duration);
                                 } else if (servo_Position < 300) {
                                         baseWritePos(300, servo_Duration);
-                                        Serial.println(servo_Duration);
+                                        // Serial.println(servo_Duration);
                                         delay(servo_Duration);
                                 } else if (servo_Position > 700) {
                                         baseWritePos(700, servo_Duration);
-                                        Serial.println(servo_Duration);
+                                        // Serial.println(servo_Duration);
                                         delay(servo_Duration);
                                 }
                                 break;
@@ -108,6 +109,9 @@ void loop() {
                         case 12:
                                 Movement_2(servo_Duration);
                                 break;
+                        case 13:
+                                Beer(servo_Duration);
+                                break;
 
                         default:            // This case control rest of the servos.
                                 if (servo_Position >= 300 && servo_Position <= 700) {
@@ -128,21 +132,22 @@ void loop() {
         }
 }
 
-void setupPosition() {
-        baseWritePos(512, 1000);
-        clawWritePos(512, 1000);
-        // (ID, Position, Duration) You have to add delay before use same ID servo again.
-        SERVO.WritePos(3, 512, 1000);// Servo ID:1, rotate to the position:0x2FF
-        SERVO.WritePos(4, 512, 1000);// Servo ID:1, rotate to the position:0x2FF
-        SERVO.WritePos(5, 512, 1000);// Servo ID:1, rotate to the position:0x2FF
-        SERVO.WritePos(6, 512, 1000);// Servo ID:1, rotate to the position:0x2FF
-        SERVO.WritePos(7, 512, 1000);// Servo ID:1, rotate to the position:0x2FF
-        delay(1500);
-}
 
 void baseWritePos(int pos, int time_ms) {
         SERVO.WritePos(1, pos, time_ms);// Servo ID:1, rotate to the position:0x2FF
         SERVO.WritePos(2, pos, time_ms);// Servo ID:1, rotate to the position:0x2FF
+}
+
+void setupPosition(int time_ms) {
+        baseWritePos(420, time_ms);
+        SERVO.WritePos(3, 500, time_ms);
+        SERVO.WritePos(4, 770, time_ms);
+        SERVO.WritePos(5, 510, time_ms);
+        SERVO.WritePos(6, 710, time_ms);
+        SERVO.WritePos(7, 510, time_ms);
+        SERVO.WritePos(8, 430, time_ms);
+        SERVO.WritePos(9, 430, time_ms);
+        delay(time_ms);
 }
 
 void clawWritePos(int pos, int time_ms) {
@@ -237,4 +242,47 @@ void Movement_2(int time_ms){
         SERVO.WritePos(8, 420, time_ms);
         SERVO.WritePos(9, 420, time_ms);
         delay(time_ms+1000);
+}
+
+
+void Beer(int time_ms){
+        baseWritePos(480, time_ms);
+        SERVO.WritePos(3, 500, time_ms);
+        SERVO.WritePos(4, 510, time_ms);
+        SERVO.WritePos(5, 530, time_ms);
+        SERVO.WritePos(6, 680, time_ms);
+        SERVO.WritePos(7, 540, time_ms);
+        SERVO.WritePos(8, 520, time_ms);
+        SERVO.WritePos(9, 540, time_ms);
+        delay(time_ms+1000);
+        // Move
+        baseWritePos(630, time_ms);
+        SERVO.WritePos(3, 700, time_ms);
+        SERVO.WritePos(4, 600, time_ms);
+        SERVO.WritePos(5, 420, time_ms);
+        SERVO.WritePos(6, 500, time_ms);
+        SERVO.WritePos(7, 380, time_ms);
+        SERVO.WritePos(8, 530, time_ms);
+        SERVO.WritePos(9, 550, time_ms);
+        delay(time_ms+1000);
+        // Clutch
+        SERVO.WritePos(8, 470, time_ms-500);
+        SERVO.WritePos(9, 370, time_ms-500);
+        delay(time_ms+1000);
+
+        SERVO.WritePos(4, 630, time_ms);
+        SERVO.WritePos(5, 380, time_ms);
+        delay(time_ms+2000);
+
+        SERVO.WritePos(4, 590, time_ms);
+        SERVO.WritePos(5, 430, time_ms);
+        SERVO.WritePos(8, 350, time_ms-500);
+        SERVO.WritePos(9, 550, time_ms-500);
+        delay(time_ms+2000);
+
+        SERVO.WritePos(8, 520, time_ms);
+        SERVO.WritePos(9, 540, time_ms);
+        delay(time_ms+1000);
+
+        homePosition(1500);
 }
