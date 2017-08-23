@@ -7,7 +7,6 @@ int cur_pos;
 
 void baseWritePos(int, int);
 void clawWritePos(int, int);
-void setupPosition(int);
 void homePosition(int);
 void Movement_1(int);
 void Movement_2(int);
@@ -35,7 +34,7 @@ void setup() {
         SERVO.EnableTorque(8, 1);
         SERVO.EnableTorque(9, 1);
 
-        setupPosition(1500);// This function is set servos to default positions
+        homePosition(1500);// This function is set servos to default positions
 }
 
 void loop() {
@@ -52,80 +51,84 @@ void loop() {
                         servo_Duration = input_String.substring(ind2+1, ind3+1).toInt(); // captires third data String
                         last_Position = SERVO.ReadPos(servo_ID);
 
+                        SERVO.WritePos(4, servo_Position, 1000);
+                        SERVO.WritePos(6, servo_Duration, 1000);
+                        delay(1000);
+
                         // Fix here later this code is trash ...
                         // We're getting minus values on servo_Duration variable, find out why!
                         // if(last_Position >= 300 && last_Position <= 700) {
                         //         servo_Duration = 10 * abs(last_Position - servo_Position);
-                        switch (servo_ID) {
-                        case 1:
-                        case 2:            // This case control servo ID: 1 and 2. (Base servo.)
-                                if (servo_Position >= 300 && servo_Position <= 700) {
-                                        baseWritePos(servo_Position, servo_Duration);
-                                        // Serial.println(servo_Duration);
-                                        delay(servo_Duration);
-                                } else if (servo_Position < 300) {
-                                        baseWritePos(300, servo_Duration);
-                                        // Serial.println(servo_Duration);
-                                        delay(servo_Duration);
-                                } else if (servo_Position > 700) {
-                                        baseWritePos(700, servo_Duration);
-                                        // Serial.println(servo_Duration);
-                                        delay(servo_Duration);
-                                }
-                                break;
-                        case 7:            // This case control servo ID: 7. Claw rotation.
-                                if (servo_Position >= 140 && servo_Position <= 400) {
-                                        SERVO.WritePos(servo_ID, servo_Position, servo_Duration);
-                                        delay(servo_Duration);
-                                } else if (servo_Position < 140) {
-                                        baseWritePos(300, servo_Duration);
-                                        delay(servo_Duration);
-                                } else if (servo_Position > 400) {
-                                        baseWritePos(400, servo_Duration);
-                                        delay(servo_Duration);
-                                }
-                                break;
-                        case 8:
-                        case 9:            // This case control servo ID: 8 and 9. Claw open and close.
-                                if (servo_Position >= 450 && servo_Position <= 600) {
-                                        clawWritePos(servo_Position, servo_Duration);
-                                        delay(servo_Duration);
-                                } else if (servo_Position < 450) {
-                                        baseWritePos(450, servo_Duration);
-                                        delay(servo_Duration);
-                                } else if (servo_Position > 600) {
-                                        baseWritePos(600, servo_Duration);
-                                        delay(servo_Duration);
-                                }
-                                break;
-                        // Home position
-                        case 10:
-                                homePosition(servo_Duration);
-                                break;
-                        // Home position
-                        case 11:
-                                Movement_1(servo_Duration);
-                                break;
-                        case 12:
-                                Movement_2(servo_Duration);
-                                break;
-                        case 13:
-                                Beer(servo_Duration);
-                                break;
-
-                        default:            // This case control rest of the servos.
-                                if (servo_Position >= 300 && servo_Position <= 700) {
-                                        SERVO.WritePos(servo_ID, servo_Position, servo_Duration);
-                                        delay(servo_Duration);
-                                } else if (servo_Position < 300) {
-                                        baseWritePos(512, servo_Duration);
-                                        delay(servo_Duration);
-                                } else if (servo_Position > 700) {
-                                        baseWritePos(700, servo_Duration);
-                                        delay(servo_Duration);
-                                }
-                                break;
-                        }
+                        // switch (servo_ID) {
+                        // case 1:
+                        // case 2:            // This case control servo ID: 1 and 2. (Base servo.)
+                        //         if (servo_Position >= 300 && servo_Position <= 700) {
+                        //                 baseWritePos(servo_Position, servo_Duration);
+                        //                 // Serial.println(servo_Duration);
+                        //                 delay(servo_Duration);
+                        //         } else if (servo_Position < 300) {
+                        //                 baseWritePos(300, servo_Duration);
+                        //                 // Serial.println(servo_Duration);
+                        //                 delay(servo_Duration);
+                        //         } else if (servo_Position > 700) {
+                        //                 baseWritePos(700, servo_Duration);
+                        //                 // Serial.println(servo_Duration);
+                        //                 delay(servo_Duration);
+                        //         }
+                        //         break;
+                        // case 7:            // This case control servo ID: 7. Claw rotation.
+                        //         if (servo_Position >= 140 && servo_Position <= 400) {
+                        //                 SERVO.WritePos(servo_ID, servo_Position, servo_Duration);
+                        //                 delay(servo_Duration);
+                        //         } else if (servo_Position < 140) {
+                        //                 baseWritePos(300, servo_Duration);
+                        //                 delay(servo_Duration);
+                        //         } else if (servo_Position > 400) {
+                        //                 baseWritePos(400, servo_Duration);
+                        //                 delay(servo_Duration);
+                        //         }
+                        //         break;
+                        // case 8:
+                        // case 9:            // This case control servo ID: 8 and 9. Claw open and close.
+                        //         if (servo_Position >= 450 && servo_Position <= 600) {
+                        //                 clawWritePos(servo_Position, servo_Duration);
+                        //                 delay(servo_Duration);
+                        //         } else if (servo_Position < 450) {
+                        //                 baseWritePos(450, servo_Duration);
+                        //                 delay(servo_Duration);
+                        //         } else if (servo_Position > 600) {
+                        //                 baseWritePos(600, servo_Duration);
+                        //                 delay(servo_Duration);
+                        //         }
+                        //         break;
+                        // // Home position
+                        // case 10:
+                        //         homePosition(servo_Duration);
+                        //         break;
+                        // // Home position
+                        // case 11:
+                        //         Movement_1(servo_Duration);
+                        //         break;
+                        // case 12:
+                        //         Movement_2(servo_Duration);
+                        //         break;
+                        // case 13:
+                        //         Beer(servo_Duration);
+                        //         break;
+                        //
+                        // default:            // This case control rest of the servos.
+                        //         if (servo_Position >= 300 && servo_Position <= 700) {
+                        //                 SERVO.WritePos(servo_ID, servo_Position, servo_Duration);
+                        //                 delay(servo_Duration);
+                        //         } else if (servo_Position < 300) {
+                        //                 baseWritePos(512, servo_Duration);
+                        //                 delay(servo_Duration);
+                        //         } else if (servo_Position > 700) {
+                        //                 baseWritePos(700, servo_Duration);
+                        //                 delay(servo_Duration);
+                        //         }
+                        //         break;
+                        // }
                         input_String = "";
                         servo_ID = servo_Position = servo_Duration = 0;
                 }
@@ -138,33 +141,33 @@ void baseWritePos(int pos, int time_ms) {
         SERVO.WritePos(2, pos, time_ms);// Servo ID:1, rotate to the position:0x2FF
 }
 
-void setupPosition(int time_ms) {
-        baseWritePos(420, time_ms);
-        SERVO.WritePos(3, 500, time_ms);
-        SERVO.WritePos(4, 770, time_ms);
-        SERVO.WritePos(5, 510, time_ms);
-        SERVO.WritePos(6, 710, time_ms);
-        SERVO.WritePos(7, 510, time_ms);
-        SERVO.WritePos(8, 430, time_ms);
-        SERVO.WritePos(9, 430, time_ms);
-        delay(time_ms);
-}
-
 void clawWritePos(int pos, int time_ms) {
         SERVO.WritePos(8, pos, time_ms);// Servo ID:1, rotate to the position:0x2FF
         SERVO.WritePos(9, pos, time_ms);// Servo ID:1, rotate to the position:0x2FF
 }
 
 void homePosition(int time_ms) {
-        baseWritePos(420, time_ms);
-        SERVO.WritePos(3, 500, time_ms);
-        SERVO.WritePos(4, 770, time_ms);
-        SERVO.WritePos(5, 510, time_ms);
-        SERVO.WritePos(6, 710, time_ms);
-        SERVO.WritePos(7, 510, time_ms);
+        baseWritePos(511, time_ms);
+        SERVO.WritePos(3, 511, time_ms);
+        SERVO.WritePos(4, 311, time_ms);
+        SERVO.WritePos(5, 511, time_ms);
+        SERVO.WritePos(6, 311, time_ms);
+        SERVO.WritePos(7, 511, time_ms);
         SERVO.WritePos(8, 430, time_ms);
         SERVO.WritePos(9, 430, time_ms);
         delay(time_ms);
+
+        /*
+           baseWritePos(420, time_ms);
+           SERVO.WritePos(3, 500, time_ms);
+           SERVO.WritePos(4, 770, time_ms);
+           SERVO.WritePos(5, 510, time_ms);
+           SERVO.WritePos(6, 710, time_ms);
+           SERVO.WritePos(7, 510, time_ms);
+           SERVO.WritePos(8, 430, time_ms);
+           SERVO.WritePos(9, 430, time_ms);
+           delay(time_ms);
+         */
 }
 
 void Movement_1(int time_ms){
