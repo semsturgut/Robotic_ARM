@@ -1,0 +1,78 @@
+(-------------------------------------------------------------------------)
+(                                                                         )
+(        ARTWORK LOG (Output By Valor)                                    )
+(                                                                         )
+(        Valor Job        : 142-82597-1000-b04                            )
+(        Drawing          : 142-82597-1000-b04.brd                        )
+(        Software Version : 82.1                                          )
+(        Date/Time        : Thu Mar 10 15:43:50 2016                      )
+(                                                                         )
+(-------------------------------------------------------------------------)
+
+Base output parameters ...
+
+OUTPUT FORMAT         Gerber274x                                        
+OUTPUT-UNITS          mm                                                
+FORMAT                4.4 (NC-Drill data may *not* be same number format)                   
+COORDINATES           absolute                                          
+SCALE                 1                                                 
+SUPPRESS-ZEROES       leading                                           
+BREAK SYMBOLS         no                                                
+MIRROR                No                                                
+Rotate Angle          0                                                 
+Offset x:             0.0                                               
+Offset y:             0.0                                               
+Plot negative         No                                                
+
+
+Output folder ---> C:/Perforce/bvoss_BVOSS-DT_1137/WMP/Projects/T210/Embedded/Design/P2597/Design/B04/P2597_B04/worklib/p2597_b04/physical
+
+Valor run time output log follows(PID = 7096) ...
+
+output_layer_reset (0)
+***********  COMMAND 10Mar2016.154350.888 GET 7096 admin 8.2.1(57) Windows Vista
+output_layer_set,layer=maskbot,angle=0,mirror=no,x_scale=1,y_scale=1, comp=0,polarity=positive,line_units=inch (0)
+***********  COMMAND 10Mar2016.154350.888 GET 7096 admin 8.2.1(57) Windows Vista
+output_layer_set,layer=fab,angle=0,mirror=no,x_scale=1,y_scale=1, comp=0,polarity=positive,line_units=inch (0)
+***********  COMMAND 10Mar2016.154350.888 GET 7096 admin 8.2.1(57) Windows Vista
+output_layer_set,layer=fabnotes,angle=0,mirror=no,x_scale=1,y_scale=1, comp=0,polarity=positive,line_units=inch (0)
+***********  COMMAND 10Mar2016.154350.888 GET 7096 admin 8.2.1(57) Windows Vista
+output_layer_set,layer=silktop,angle=0,mirror=no,x_scale=1,y_scale=1, comp=0,polarity=positive,line_units=inch (0)
+***********  COMMAND 10Mar2016.154350.888 GET 7096 admin 8.2.1(57) Windows Vista
+output_layer_set,layer=l4,angle=0,mirror=no,x_scale=1,y_scale=1, comp=0,polarity=positive,line_units=inch (0)
+***********  COMMAND 10Mar2016.154350.888 GET 7096 admin 8.2.1(57) Windows Vista
+output_layer_set,layer=l5,angle=0,mirror=no,x_scale=1,y_scale=1, comp=0,polarity=positive,line_units=inch (0)
+***********  COMMAND 10Mar2016.154350.903 GET 7096 admin 8.2.1(57) Windows Vista
+output_layer_set,layer=l6_bottom,angle=0,mirror=no,x_scale=1,y_scale=1, comp=0,polarity=positive,line_units=inch (0)
+***********  COMMAND 10Mar2016.154350.903 GET 7096 admin 8.2.1(57) Windows Vista
+output_layer_set,layer=asytop,angle=0,mirror=no,x_scale=1,y_scale=1, comp=0,polarity=positive,line_units=inch (0)
+***********  COMMAND 10Mar2016.154350.903 GET 7096 admin 8.2.1(57) Windows Vista
+output_layer_set,layer=pastebot,angle=0,mirror=no,x_scale=1,y_scale=1, comp=0,polarity=positive,line_units=inch (0)
+***********  COMMAND 10Mar2016.154350.903 GET 7096 admin 8.2.1(57) Windows Vista
+output_layer_set,layer=l1_top,angle=0,mirror=no,x_scale=1,y_scale=1, comp=0,polarity=positive,line_units=inch (0)
+***********  COMMAND 10Mar2016.154350.903 GET 7096 admin 8.2.1(57) Windows Vista
+output_layer_set,layer=l3,angle=0,mirror=no,x_scale=1,y_scale=1, comp=0,polarity=positive,line_units=inch (0)
+***********  COMMAND 10Mar2016.154350.903 GET 7096 admin 8.2.1(57) Windows Vista
+output_layer_set,layer=masktop,angle=0,mirror=no,x_scale=1,y_scale=1, comp=0,polarity=positive,line_units=inch (0)
+***********  COMMAND 10Mar2016.154350.903 GET 7096 admin 8.2.1(57) Windows Vista
+output_layer_set,layer=l2,angle=0,mirror=no,x_scale=1,y_scale=1, comp=0,polarity=positive,line_units=inch (0)
+***********  COMMAND 10Mar2016.154350.919 GET 7096 admin 8.2.1(57) Windows Vista
+output_layer_set,layer=pastetop,angle=0,mirror=no,x_scale=1,y_scale=1, comp=0,polarity=positive,line_units=inch (0)
+***********  COMMAND 10Mar2016.154350.919 GET 7096 admin 8.2.1(57) Windows Vista
+output_layer_set,layer=asybot,angle=0,mirror=no,x_scale=1,y_scale=1, comp=0,polarity=positive,line_units=inch (0)
+***********  COMMAND 10Mar2016.154350.919 GET 7096 admin 8.2.1(57) Windows Vista
+output_layer_set,layer=silkbot,angle=0,mirror=no,x_scale=1,y_scale=1, comp=0,polarity=positive,line_units=inch (0)
+***********  COMMAND 10Mar2016.154351.028 GET 7096 admin 8.2.1(57) Windows Vista
+output,job=142-82597-1000-b04,step=cad,format=Gerber274x,dir_path=C:/Perforce/bvoss_BVOSS-DT_1137/WMP/Projects/T210/Embedded/Design/P2597/Design/B04/P2597_B04/worklib/p2597_b04/physical, prefix=,suffix=.art,break_sr=yes,break_symbols=no, break_arc=yes,scale_mode=all,surface_mode=contour,min_brush=1,units=mm, coordinates=absolute,zeroes=leading,nf1=4,nf2=4, x_anchor=0,y_anchor=0,wheel=,x_offset=0,y_offset=0, line_units=inch,override_online=yes (0)
+*********** WARNING  10Mar2016.154351.761 GET 7096 admin 8.2.1(57) Windows Vista
+Numbering format changed to 4.5 .
+***********  COMMAND 10Mar2016.154354.101 GET 7096 admin 8.2.1(57) Windows Vista
+editor_group,job=142-82597-1000-b04,is_step=yes,name=cad (-1)
+***********  COMMAND 10Mar2016.154358.345 GET 7096 admin 8.2.1(57) Windows Vista
+disp_on (-1)
+***********  COMMAND 10Mar2016.154358.345 GET 7096 admin 8.2.1(57) Windows Vista
+origin_on (-1)
+
+
+Gerber274x output finished...
+

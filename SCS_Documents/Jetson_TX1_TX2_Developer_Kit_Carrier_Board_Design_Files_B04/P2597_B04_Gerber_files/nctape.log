@@ -1,0 +1,80 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    NC DRILL Log                                                     )
+(                                                                     )
+(    Drawing          : 142-82597-1000-B04.brd                        )
+(    Software Version : 16.6-2015S063                                 )
+(    Date/Time        : Thu Mar 10 15:40:22 2016                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+
+ Processing NC Parameters file 'nc_param.txt' ...
+
+ NC PARAMETERS
+ -------------
+
+ FORMAT   		3.4
+ MACHINE-OFFSET		x:0.00000	y:0.00000   (mm)
+ FEEDRATE		1
+ COORDINATES		ABSOLUTE
+ OUTPUT-UNITS		METRIC
+ TOOL-ORDER		INCREASING
+ REPEAT-CODES		YES
+ SUPPRESS-LEAD-ZEROES	YES
+ SUPPRESS-TRAIL-ZEROES	NO
+ SUPPRESS-EQUAL		YES
+ TOOL-SELECT		NO
+ HEADER			none
+ LEADER			12
+ CODE			ASCII
+ SEPARATE		NO
+ SEPARATE-ROUTING	NO
+ OPTIMIZE_DRILLING	NO
+ ENHANCED_EXCELLON	NO
+ SCALE			1.000000
+
+ WARNING(SPMHMF-365): This design contains 9 slot holes that can NOT be drilled.
+ WARNING(SPMHMF-366): They can be processed by NC routing instead.
+
+
+ Drill files being output to directory 'C:/Perforce/bvoss_BVOSS-DT_1137/WMP/Projects/T210/Embedded/Design/P2597/Design/B04/P2597_B04/worklib/p2597_b04/physical' ...
+
+
+
+     'ncdrill-1-6.tap' created for holes connecting TOP and BOTTOM
+     -------------------------------------------------------------
+
+           Num     Size      +/- Tolerance     Plating   Quantity
+
+            1.   0.2800    0.0800/  0.2800      PLATED       3653
+            2.   0.3500    0.0800/  0.3500      PLATED         32
+            3.   0.6400    0.0800/  0.0800      PLATED          4
+            4.   0.7000    0.0800/  0.0800      PLATED          9
+            5.   0.7100    0.0800/  0.0800      PLATED         64
+            6.   0.8900    0.0800/  0.0800      PLATED         12
+            7.   1.0200    0.0800/  0.0800      PLATED         73
+            8.   1.1900    0.0800/  0.0800      PLATED          4
+            9.   1.6000    0.0800/  0.0800      PLATED          2
+           10.   1.7000    0.0800/  0.0800      PLATED          1
+           11.   2.3000    0.0800/  0.0800      PLATED          2
+           12.   3.2000    0.1300/  0.1300      PLATED         11
+           13.   1.0900    0.0500/  0.0500  NON_PLATED          6
+           14.   1.1000    0.0500/  0.0500  NON_PLATED          1
+           15.   1.2700    0.0500/  0.0500  NON_PLATED          2
+           16.   1.4000    0.0500/  0.0500  NON_PLATED          2
+           17.   1.6000    0.0500/  0.0500  NON_PLATED          1
+           18.   1.6500    0.0500/  0.0500  NON_PLATED          1
+           19.   2.1000    0.0500/  0.0500  NON_PLATED          2
+           20.   2.3600    0.0500/  0.0500  NON_PLATED          2
+           21.   2.7500    0.0800/  0.0800  NON_PLATED          2
+           22.   3.0000    0.0800/  0.0000  NON_PLATED          3
+           23.   3.2500    0.0800/  0.0800  NON_PLATED          2
+           24.   3.9500    0.0800/  0.0800  NON_PLATED          4
+           25.   4.3000    0.0800/  0.0800  NON_PLATED          1
+
+     ---- Total holes:                                       3896
+
+     ---- Total head travel:              348.26 feet (106.15 meters)
+
